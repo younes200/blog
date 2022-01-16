@@ -24,3 +24,16 @@ export const MDXLayoutRenderer = ({ layout, mdxSource, ...rest }) => {
 
   return <MDXLayout layout={layout} components={MDXComponents} {...rest} />
 }
+
+export const MDXSimpleComponents = {
+  Image,
+  TOCInline,
+  a: CustomLink,
+  pre: Pre,
+}
+
+export const MDXSimpleRenderer = ({ layout, mdxSource, ...rest }) => {
+  const MDXLayout = useMemo(() => getMDXComponent(mdxSource), [mdxSource])
+
+  return <MDXLayout layout={layout} components={MDXSimpleComponents} {...rest} />
+}

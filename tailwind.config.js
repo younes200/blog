@@ -3,6 +3,7 @@ const colors = require('tailwindcss/colors')
 
 module.exports = {
   content: ['./pages/**/*.js', './components/**/*.js', './layouts/**/*.js', './lib/**/*.js'],
+  darkMode: false, // or 'media' or 'class'
   theme: {
     extend: {
       spacing: {
@@ -15,7 +16,8 @@ module.exports = {
         14: '3.5rem',
       },
       fontFamily: {
-        sans: ['Inter', ...defaultTheme.fontFamily.sans],
+        sans: ['Sofia Pro', ...defaultTheme.fontFamily.sans],
+        serif: ['Lora', ...defaultTheme.fontFamily.serif],
       },
       colors: {
         // primary: colors.teal,
@@ -37,11 +39,13 @@ module.exports = {
       typography: (theme) => ({
         DEFAULT: {
           css: {
+            fontSize: 19,
+            lineHeight: '31.35px',
             color: theme('colors.primary.10'),
             a: {
               textDecoration: 'none',
-              padding: '0.2em 0.5rem',
-              backgroundColor: theme('colors.secondary-70/20'),
+              borderRadius: '4px',
+              backgroundColor: '#ff6b992e',
               color: theme('colors.secondary.30'),
               '&:hover': {
                 color: theme('colors.secondary.10'),
@@ -96,6 +100,10 @@ module.exports = {
             blockquote: {
               color: theme('colors.gray.100'),
               borderLeftColor: theme('colors.gray.700'),
+            },
+            li: {
+              marginTop: 0,
+              marginBottom: 0,
             },
           },
         },
